@@ -1,29 +1,27 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <div id="app" class="relative min-h-screen flex flex-col justify-between">
+        <div>
+            <Navigation />
+            <router-view />
+        </div>
+        <Footer />
+    </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Vue, Component } from "vue-property-decorator";
+import "./assets/styles/app.scss";
 
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@Component
+export default class App extends Vue {
+    fetchCountries() {
+        // Functions calls the getEuropeanCountries action that fetches data and sets the state through the corresponding mutator.
+        this.$store.dispatch("getCountries");
+        this.$store.dispatch("getEuropeanCountries");
+    }
+    created() {
+        // Both Api calls are made and the data will be stored inside of the state.
+        this.fetchCountries();
+    }
 }
-</style>
+</script>
