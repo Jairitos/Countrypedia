@@ -1,0 +1,25 @@
+.region-btn {
+    .overlay {
+        width: 100%;
+        bottom: -100%;
+        left: -100%;
+        transform: rotate(-45deg);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .category-image {
+        transform: scale(1);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    &:hover {
+        .overlay {
+            transform: rotate(0deg);
+                @apply bottom-0 left-0 w-full;
+        }
+
+        .category-image {
+            transform: scale(1.1);
+        }
+    }
+}

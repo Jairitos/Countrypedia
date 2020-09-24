@@ -38,7 +38,6 @@
 
 <script lang='ts'>
 import { Vue, Component } from "vue-property-decorator";
-import "vue-select/dist/vue-select.css";
 
 @Component
 export default class RegionView extends Vue {

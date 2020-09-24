@@ -1,0 +1,21 @@
+$transition-btn: all 0.3s ease-in-out;
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+
+    &.no-scroll {
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+.btn {
+    transition: $transition-btn;
+}
+
+.country-card {
+    transition: opacity 0.3s ease-in-out;
+}

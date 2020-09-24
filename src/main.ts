@@ -5,6 +5,7 @@ import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex'
 import storeData from './store/index';
+import './assets/styles/app.scss';
 
 Vue.config.productionTip = false;
 // Registration of all the components and packages. Most components are getting dynamically imported so they will only be imported when they are needed.

@@ -43,9 +43,9 @@ export default class Homepage extends Vue {
         // Blocks ability to scroll down when intro header is showed else you will scroll down before the animations are done. After the settimeout is done the classes are removed so you can scroll down again.
         const bodyEl: HTMLBodyElement | null = document.querySelector("body");
         if (bodyEl !== null) {
-            bodyEl.classList.add("h-full", "overflow-hidden");
+            bodyEl.classList.add("no-scroll");
             setTimeout(() => {
-                bodyEl.classList.remove("h-full", "overflow-hidden");
+                bodyEl.classList.remove("no-scroll");
             }, 3000);
         }
     }
