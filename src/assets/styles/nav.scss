@@ -1,0 +1,22 @@
+.skewed-icon {
+    transform: rotate(0);
+    transition: transform 0.5s ease-in-out;;
+
+    &:hover {
+        transform: rotate(27deg);
+        transition: transform 0.5s ease-in-out;;
+    }
+}
+
+.btn-icon-close {
+    .rotate-icon {
+        transform: rotate(0);
+        transition: transform 0.5s ease-in-out;;
+    }
+    
+    &:hover {
+        .rotate-icon {
+            transform: rotate(360deg);
+        }
+    }
+}

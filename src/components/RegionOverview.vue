@@ -4,7 +4,7 @@
             <BreadCrumbs :route="routeUrl"></BreadCrumbs>
             <div class="w-full flex flex-col md:flex-row mb-10 md:mb-0">
                 <h1
-                    class="inline-block w-2/3 text-open-sans haha text-lg font-bold mb-6 uppercase leading-none"
+                    class="inline-block w-2/3 font-open-sans text-black-light  text-lg font-bold mb-6 uppercase leading-none"
                 >{{routeUrl}}</h1>
                 <div class="w-3/4 md:w-1/2 lg:w-1/3 flex md:justify-end">
                     <v-select

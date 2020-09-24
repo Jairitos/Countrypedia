@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import 'font.scss';
+@import 'nav.scss';
 
 @keyframes visible-text {
     0 {
@@ -73,25 +74,6 @@ body {
 .no-scroll {
     height: 100%;
     overflow: hidden;
-}
-
-.rotate-icon {
-    transform: rotate(0);
-    transition: var(--transition-icon);
-}
-
-.btn-icon-close:hover .rotate-icon {
-    transform: rotate(360deg);
-}
-
-.skewed-icon {
-    transform: rotate(0);
-    transition: var(--transition-icon);
-}
-
-.skewed-icon:hover {
-    transform: rotate(27deg);
-    transition: var(--transition-icon);
 }
 
 .country-card {
