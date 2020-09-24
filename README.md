@@ -1,4 +1,4 @@
-# test-dtt
+# Countrypedia
 
 ## Project setup
 ```
