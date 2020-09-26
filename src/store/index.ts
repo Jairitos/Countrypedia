@@ -16,15 +16,11 @@ const actions = {
   async getCountries({ commit }: {commit: Function}) {
     try {
       // set Loading state to true. This will result in the appareance of the loading gif.
-      commit('setIsLoading', true);
-      setTimeout(() => {
-        axios.get("https://restcountries.eu/rest/v2/all").then((response) => {
-          const { data } = response;
+        commit('setIsLoading', true);
+        const { data } = await axios.get("https://restcountries.eu/rest/v2/all");
           // Data from call is set to the state and set Loading state is set to false. This will result in the disappareance of the loading gif and appareance  of the data.
-          commit('setCountries', data)
-          commit('setIsLoading', false);
-      })
-      }, 2000)
+          await commit('setCountries', data)
+          await commit('setIsLoading', false);
     } 
     catch (err) {
       commit('setIsLoading', false);

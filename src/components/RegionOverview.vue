@@ -1,7 +1,7 @@
 <template>
    <section class="mt-32 container mx-auto h-full px-4 md:px-8">
         <div>
-            <BreadCrumbs :route="routeUrl"></BreadCrumbs>
+            <bread-crumbs :route="routeUrl" />
             <div class="w-full flex flex-col md:flex-row mb-10 md:mb-0">
                 <h1
                     class="inline-block w-2/3 font-open-sans text-black-light  text-lg font-bold mb-6 uppercase leading-none"
@@ -16,7 +16,7 @@
                     />
                 </div>
             </div>
-            <LoadingGif v-if="isLoading"></LoadingGif>
+            <loading-gif v-if="isLoading" />
             <div v-else class="w-auto flex justify-between flex-wrap">
                 <div
                     v-for="(item, index) in getEuropeanCountries"

@@ -1,18 +1,19 @@
-
+    $transition-rotation: transform 0.5s ease-in-out;
+    
     .skewed-icon {
         transform: rotate(0);
-        transition: transform 0.5s ease-in-out;;
+        transition: $transition-rotation;
     
         &:hover {
             transform: rotate(27deg);
-            transition: transform 0.5s ease-in-out;;
+            transition: $transition-rotation;
         }
     }
     
     .btn-icon-close {
         .rotate-icon {
             transform: rotate(0);
-            transition: transform 0.5s ease-in-out;;
+            transition: $transition-rotation;
         }
         
         &:hover {

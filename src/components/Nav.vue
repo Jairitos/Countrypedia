@@ -1,9 +1,9 @@
 <template>
     <div class="relative">
         <!-- Modal pops up when you click on the category button inside of the menu. -->
-        <Modal :isModalVisible="showModal" @interface="toggleModal"></Modal>
+        <modal :isModalVisible="showModal" @interface="toggleModal" />
         <nav id="#main-nav" class="hidden md:flex text-black h-20 items-center px-8 shadow-md bg-mist-blue fixed top-0 left-0 w-full z-20">
-            <HomeButton></HomeButton>
+            <home-button />
             <ul class="w-3/4 flex h-full font-open-sans text-white">
                 <li class="h-full">
                     <button @click="toggleModal" type="button" class="h-full hover:bg-stone-blue flex px-8 items-center focus:outline-none btn">Categories</button>
@@ -15,7 +15,7 @@
         </nav>
         <!-- Mobile navigation with hamburger menu and home button -->
         <nav id="mobile-nav" class="flex md:hidden text-black h-20 px-8 shadow-md bg-mist-blue fixed top-0 left-0 z-20 w-full justify-between">
-            <HomeButton></HomeButton>
+            <home-button />
             <button type="button" class="focus:outline-none" @click="toggleMenu">
                 <svg class="w-6 h-6 skewed-icon" fill="#FFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
                     <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z" /></svg>

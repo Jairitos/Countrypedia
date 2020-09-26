@@ -23,11 +23,20 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import Vue from 'vue';
 
-@Component
-export default class BreadCrumbs extends Vue {
-    @Prop({ required: true }) route!: string;
-    routeName: string = this.route;
-}
+export default Vue.extend ({
+    props: {
+        route: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {
+            routeName: this.route as string,
+        }
+    }
+    
+})
 </script>

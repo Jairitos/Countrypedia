@@ -16,7 +16,7 @@
                     <v-select v-model="selected" class="bg-white h-8 w-11/12 relative z-10" :placeholder="'Sort countries'" :options="['Descending alphabetical', 'Most letters']" :searchable="false" />
                 </div>
             </div>
-            <LoadingGif v-if="isLoading"></LoadingGif>
+            <loading-gif v-if="isLoading" />
             <div v-else class="w-auto flex justify-between flex-wrap">
                 <div v-for="(item, index) in getEuropeanCountries" :key="index" class="w-full md:w-45% lg:w-3/10 mb-10 h-max-full">
                     <router-link :to="'/country/' + item" class="country-card w-full bg-stone-blue hover:opacity-75 rounded shadow-md p-8 flex">

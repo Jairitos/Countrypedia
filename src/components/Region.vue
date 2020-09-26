@@ -1,7 +1,7 @@
 <template>
     <section id="regions" class="w-auto -mx-2 flex flex-wrap">
         <div v-for="(cat, index) in categories" :key="index" class="w-3/10 flex m-2">
-            <CategoryButton :name="cat"></CategoryButton>
+            <category-button :name="cat" />
         </div>
     </section>
 </template>

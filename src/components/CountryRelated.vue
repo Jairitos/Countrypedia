@@ -1,7 +1,7 @@
 <template>
     <div v-if="this.$store.getters.allCountries.length > 0" class="flex flex-wrap justify-between">
         <div v-for="(country, index) in getCountries" :key="index" class="w-full lg:w-31%">
-            <CountryCard :dataCountry="country" class="related-country w-full mb-10 lg:mb-0 bg-stone-blue text-white font-open-sans rounded shadow-md p-5 md:p-10 flex flex-col"></CountryCard>
+            <country-card :dataCountry="country" class="related-country w-full mb-10 lg:mb-0 bg-stone-blue text-white font-open-sans rounded shadow-md p-5 md:p-10 flex flex-col" />
         </div>
     </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
     <section class="mt-32 container mx-auto px-4 md:px-8">
-        <BreadCrumbs :route="routeUrl"></BreadCrumbs>
+        <bread-crumbs :route="routeUrl" />
         <div class="w-full flex flex-col md:flex-row">
             <h1 class="inline-block w-full md:w-2/3 font-open-sans text-black-light text-lg font-bold mb-6 uppercase leading-none">Random Country</h1>
         </div>
         <button @click="generateRandomNumber" type="button" class="btn py-2 px-2 text-center rounded bg-white border-2 border-stone-blue hover:bg-stone-blue hover:text-white focus:outline-none">Random Country</button>
-        <LoadingGif v-if="isLoading"></LoadingGif>
+        <loading-gif v-if="isLoading" />
         <div v-else>
 
             <CountryCard :dataCountry="showRandomCountry" class="w-full lg:w-1/2 flex flex-col bg-autumn-brown p-5 md:p-10 rounded shadow-md font-open-sans text-black-light relative mt-10 mb-16"></CountryCard>

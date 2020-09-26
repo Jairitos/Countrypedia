@@ -14,7 +14,7 @@
                 <h1 class="inline-block w-2/3 text-open-sans text-black-light text-lg font-bold mb-6 uppercase leading-none">Regions</h1>
             </div>
             <div class="w-full">
-               <Region></Region>
+               <region />
             </div>
         </div>
     </section>

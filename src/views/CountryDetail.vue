@@ -1,14 +1,14 @@
 <template>
     <section class="mt-24 container mx-auto px-4 md:px-8 mb-20">
-        <BreadCrumbs :route="routeUrl"></BreadCrumbs>
-        <LoadingGif v-if="isLoading"></LoadingGif>
+        <bread-crumbs :route="routeUrl" />
+        <loading-gif v-if="isLoading" />
         <div v-else>
             <div v-for="data in getCountry" :key="data.id">
-                <CountryCard :dataCountry="data" class="w-full lg:w-1/2 flex flex-col bg-autumn-brown p-5 md:p-10 rounded shadow-md font-open-sans relative text-black-light"></CountryCard>
+                <country-card :dataCountry="data" class="w-full lg:w-1/2 flex flex-col bg-autumn-brown p-5 md:p-10 rounded shadow-md font-open-sans relative text-black-light" />
             </div>
             <div class="mt-10">
                 <h2 class="font-open-sans text-lg text-black-light font-bold uppercase mb-6">Related countries</h2>
-                <CountryRelated :reg="region"></CountryRelated>
+                <country-related :reg="region" />
             </div>
         </div>
     </section>

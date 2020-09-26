@@ -2,10 +2,10 @@
     <div id="app" class="min-h-screen overflow-hidden">
         <div class="relative flex flex-col justify-between">
             <div>
-                <Navigation />
+                <navigation />
                 <router-view />
             </div>
-            <Footer />
+            <footer-component />
         </div>
     </div>
 </template>
