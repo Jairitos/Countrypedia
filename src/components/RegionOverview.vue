@@ -7,13 +7,15 @@
                     class="inline-block w-2/3 font-open-sans text-black-light  text-lg font-bold mb-6 uppercase leading-none"
                 >{{routeUrl}}</h1>
                 <div class="w-3/4 md:w-1/2 lg:w-1/3 flex md:justify-end">
-                    <v-select
+                    <!-- <v-select
                         v-model="selected"
                         class="bg-white h-8 w-11/12 relative z-10"
                         :placeholder="'Sort countries'"
                         :options="['Descending alphabetical', 'Most letters']"
                         :searchable="false"
-                    />
+                    /> -->
+
+                    <select-component class="bg-white h-8 w-11/12 relative z-10" @add:selectedOption="changeOptionSelected" />
                 </div>
             </div>
             <loading-gif v-if="isLoading" />
@@ -43,6 +45,10 @@ import { Vue, Component } from "vue-property-decorator";
 export default class RegionView extends Vue {
     selected: string = "";
     routeUrl: string = this.$route.name as string;
+
+    changeOptionSelected(option: any) {
+        this.selected = option;
+    }
 
     get getEuropeanCountries(): Array<string> {
         // Store the state with all the European countries inside a new variable
