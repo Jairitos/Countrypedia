@@ -19,3 +19,9 @@ body {
 .country-card {
     transition: opacity 0.3s ease-in-out;
 }
+
+.red-delete-icon {
+    path {
+        fill: rgb(160, 0, 0);
+    }
+}
