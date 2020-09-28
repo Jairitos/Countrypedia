@@ -24,19 +24,12 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 @Component
 export default class extends Vue {
     @Prop({ required: true }) dataCountry!: object;
-    country: object = {};
+    country: object = this.dataCountry;
     // This function will set the country variable to the dataCountry prop when the component is created. This will create a template with the passed information.
-    setCountry() {
-        this.country = this.dataCountry;
-    }
     // Here the dataCountry will be watched so the component is reactive. When the prop changes the country variable gets updated with the new value;
     @Watch("dataCountry")
     setNewRandomCountry(newDataCountry: object) {
         this.country = newDataCountry;
-    }
-
-    created() {
-        this.setCountry();
     }
 }
 </script>

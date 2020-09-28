@@ -1,0 +1,17 @@
+.country-filter {
+    .option {
+        &.active {
+            @apply bg-green-900 text-white;
+        }
+    }
+
+    .arrowhead {
+        transform: rotate(0deg);
+        transition: transform $transition-btn;
+
+        &.rotate{
+            transform: rotate(180deg)
+        }
+    }   
+}
+

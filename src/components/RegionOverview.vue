@@ -7,27 +7,30 @@
                     class="inline-block w-2/3 font-open-sans text-black-light  text-lg font-bold mb-6 uppercase leading-none"
                 >{{routeUrl}}</h1>
                 <div class="w-3/4 md:w-1/2 lg:w-1/3 flex md:justify-end">
-                    <v-select
+                    <!-- <v-select
                         v-model="selected"
                         class="bg-white h-8 w-11/12 relative z-10"
                         :placeholder="'Sort countries'"
                         :options="['Descending alphabetical', 'Most letters']"
                         :searchable="false"
-                    />
+                    /> -->
+
+                    <select-component class="bg-white h-8 w-11/12 relative z-10" @add:selectedOption="changeOptionSelected" />
                 </div>
             </div>
             <loading-gif v-if="isLoading" />
-            <div v-else class="w-auto flex justify-between flex-wrap">
+            <div v-else class="w-auto flex flex-wrap -mx-4">
                 <div
-                    v-for="(item, index) in getEuropeanCountries"
-                    :key="index"
-                    class="w-full md:w-45% lg:w-3/10 mb-10 h-40"
+                    v-for="(country, id) in getEuropeanCountries"
+                    :key="id"
+                    class="w-full md:w-1/2 lg:w-1/3 mb-10 h-40 px-4"
                 >
                     <router-link
-                        :to="'europe/country/' + item"
+                        :id="id"
+                        :to="'europe/country/' + country"
                         class="country-card w-full bg-stone-blue h-full hover:opacity-75 rounded shadow-md p-8 flex items-center "
                     >
-                        <h2 class="text-white font-opens-sans text-base">{{item}}</h2>
+                        <h2 class="text-white font-opens-sans text-base">{{country}}</h2>
                     </router-link>
                 </div>
             </div>
@@ -43,6 +46,10 @@ import { Vue, Component } from "vue-property-decorator";
 export default class RegionView extends Vue {
     selected: string = "";
     routeUrl: string = this.$route.name as string;
+
+    changeOptionSelected(option: string) {
+        this.selected = option;
+    }
 
     get getEuropeanCountries(): Array<string> {
         // Store the state with all the European countries inside a new variable

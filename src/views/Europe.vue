@@ -1,3 +1,3 @@
 <template>
-    <RegionOverview></RegionOverview>
+    <region-overview />
 </template>

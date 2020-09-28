@@ -23,9 +23,9 @@ export default class CountryDetail extends Vue {
     region: string = "";
     // The getCountry function will filter through the fetched data from the store. It looks a item that corresponds with the id that is passed from the router. If it is a hit, it will make a new array with the filtered item. This wil result in the data gets shown.
     get getCountry() {
-        const allEuropeanCountries: Array<any> = this.$store.getters
-            .allEuropeanCountries;
-        const filteredCountry = allEuropeanCountries.filter((item) => {
+        const allCountries: Array<any> = this.$store.getters
+            .allCountries;
+        const filteredCountry = allCountries.filter((item) => {
             const { name, region } = item; 
             if (name === this.routeUrl) {
                 this.region = region;
@@ -37,10 +37,6 @@ export default class CountryDetail extends Vue {
     // Gets the loading state that regulated the visibility of the loading gif.
     get isLoading() {
         return this.$store.getters.loadingInProgress;
-    }
-
-    mounted() {
-        console.log(this.$route)
     }
 }
 </script>

@@ -24,6 +24,8 @@ Vue.component('loading-gif', () => import('./components/LoadingGif.vue'));
 Vue.component('region', () => import('./components/Region.vue'));
 Vue.component('category-button', () => import('./components/CategoryButton.vue'));
 Vue.component('region-overview', () => import('./components/RegionOverview.vue'));
+Vue.component('select-component', () => import('./components/Select.vue'));
+Vue.component('delete-svg', () => import('./components/DeleteSvg.vue'));
 
 // Use of Vue router to define all the different paths and which components has to be loaded
 const routes = [
