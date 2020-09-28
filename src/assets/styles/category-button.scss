@@ -1,6 +1,6 @@
 .region-btn {
     .overlay {
-        width: 100%;
+        @apply w-full;
         bottom: -100%;
         left: -100%;
         transform: rotate(-45deg);

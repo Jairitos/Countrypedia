@@ -12,7 +12,7 @@
                 <div class="flex">
                     <button
                     v-show="selected !== 'Sort countries'"
-                    @click="clearSelection($event)"
+                    @click.stop="clearSelection($event)"
                     type="button"
                     class="focus:outline-none"
                 >
@@ -27,11 +27,13 @@
                     type="text"
                     value="Descending alphabetical"
                     :disabled="selected === 'Descending alphabetical'"
+                    :class="[selected === 'Descending alphabetical' ? 'active' : '']"
                     class="option w-full p-2 hover:bg-mist-blue cursor-pointer focus:outline-none"
                 />
                 <input
                     @click="onChange($event)"
                     :disabled="selected === 'Most letters'"
+                    :class="[selected === 'Most letters' ?'active' : '']"
                     type="text"
                     value="Most letters"
                     class="option w-full p-2 hover:bg-mist-blue cursor-pointer focus:outline-none"
@@ -45,8 +47,8 @@
 import Vue from "vue";
 
 Vue.directive("click-outside", {
-    bind: function (el, binding, vnode) {
-        el.clickOutsideEvent = function (event) {
+    bind: (el: object, binding, vnode) => {
+        el.clickOutsideEvent = (event: object) =>  {
             // here I check that click was outside the el and his childrens
             if (!(el == event.target || el.contains(event.target))) {
                 // and if it did, call method provided in attribute value
@@ -55,7 +57,7 @@ Vue.directive("click-outside", {
         };  
         document.body.addEventListener("click", el.clickOutsideEvent);
     },
-    unbind: function (el) {
+    unbind: (el) =>  {
         document.body.removeEventListener("click", el.clickOutsideEvent);
     },
 });
@@ -72,9 +74,7 @@ export default Vue.extend({
             this.$emit("add:selectedOption", this.selected);
         },
         onChange(event: any) {
-            this.clearActiveClass();
             this.selected = event.target.value;
-            event.target.classList.add("active");
             this.emitSelectedOption();
         },
         selectDropdown() {
@@ -84,16 +84,7 @@ export default Vue.extend({
             event.stopImmediatePropagation();
             this.selected = "Sort countries";
             this.dropdownOpen = false;
-            this.clearActiveClass();
             this.emitSelectedOption();
-        },
-        clearActiveClass() {
-            const options = document.querySelectorAll(".option") as NodeListOf<
-                HTMLBodyElement
-            >;
-            for (const option of options) {
-                option.classList.remove("active");
-            }
         },
         handleFocusOut() {
             this.dropdownOpen = false;

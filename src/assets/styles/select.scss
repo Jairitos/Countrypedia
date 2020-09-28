@@ -7,13 +7,11 @@
 
     .arrowhead {
         transform: rotate(0deg);
-        transition: transform 0.3s ease;
+        transition: transform $transition-btn;
 
         &.rotate{
             transform: rotate(180deg)
         }
-    }
-
-   
+    }   
 }
 

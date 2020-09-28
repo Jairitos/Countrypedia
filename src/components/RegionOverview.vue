@@ -19,17 +19,18 @@
                 </div>
             </div>
             <loading-gif v-if="isLoading" />
-            <div v-else class="w-auto flex justify-between flex-wrap">
+            <div v-else class="w-auto flex flex-wrap -mx-4">
                 <div
-                    v-for="(item, index) in getEuropeanCountries"
-                    :key="index"
-                    class="w-full md:w-45% lg:w-3/10 mb-10 h-40"
+                    v-for="(country, id) in getEuropeanCountries"
+                    :key="id"
+                    class="w-full md:w-1/2 lg:w-1/3 mb-10 h-40 px-4"
                 >
                     <router-link
-                        :to="'europe/country/' + item"
+                        :id="id"
+                        :to="'europe/country/' + country"
                         class="country-card w-full bg-stone-blue h-full hover:opacity-75 rounded shadow-md p-8 flex items-center "
                     >
-                        <h2 class="text-white font-opens-sans text-base">{{item}}</h2>
+                        <h2 class="text-white font-opens-sans text-base">{{country}}</h2>
                     </router-link>
                 </div>
             </div>
@@ -46,7 +47,7 @@ export default class RegionView extends Vue {
     selected: string = "";
     routeUrl: string = this.$route.name as string;
 
-    changeOptionSelected(option: any) {
+    changeOptionSelected(option: string) {
         this.selected = option;
     }
 

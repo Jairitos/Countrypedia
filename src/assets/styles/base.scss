@@ -1,4 +1,4 @@
-$transition-btn: all 0.3s ease-in-out;
+$transition-btn: 0.3s ease-in-out;
 
 body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -7,17 +7,16 @@ body {
     font-size: 16px;
 
     &.no-scroll {
-        height: 100%;
-        overflow: hidden;
+        @apply h-full overflow-hidden;
     }
 }
 
 .btn {
-    transition: $transition-btn;
+    transition: all $transition-btn;
 }
 
 .country-card {
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity $transition-btn;
 }
 
 .red-delete-icon {
