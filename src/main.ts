@@ -32,6 +32,9 @@ const routes = [
     { path: '/', component: () => import('./views/HomeTwo.vue'), name: 'HomeTwo' },
     { path: '/europe', component: () => import('./views/Europe.vue'), name: 'Europe' },
     { path: '/asia', component: () => import('./views/Asia.vue'), name: 'Asia' },
+    { path: '/americas', component: () => import('./views/Americas.vue'), name: 'Americas' },
+    { path: '/africa', component: () => import('./views/Africa.vue'), name: 'Africa' },
+    { path: '/oceania', component: () => import('./views/Oceania.vue'), name: 'Oceania' },
     { path: '/europe/country/:id', component: () => import('./views/CountryDetail.vue'), name: 'Country detail' },
     { path: '/random-country', component: () => import('./views/RandomPage.vue'), name: 'Random country'}
 ]
