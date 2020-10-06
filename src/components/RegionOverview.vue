@@ -59,17 +59,14 @@ export default class RegionView extends Vue {
     }
     get getAllCountries(): Array<string> {
         // Store the state with all the European countries inside a new variable
-        const arrayCountries: Array<{
-            name: string;
-            region: string;
-        }> = this.$store.getters.allCountries;
-        const countriesRegion = arrayCountries.filter((item) => {
+        const arrayCountries = this.$store.getters.allCountries;
+        const countriesRegion = arrayCountries.filter((item: { region: string}) => {
             if (item.region === this.routeUrl) {
                 return item;
             }
         });
         const arrayOfNames = this.filterNames(
-            countriesRegion.map((item) => item.name)
+            countriesRegion.map((item: { name: string}) => item.name)
         );
         return arrayOfNames;
     }
