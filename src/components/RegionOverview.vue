@@ -1,11 +1,12 @@
 <template>
-   <section class="mt-32 container mx-auto h-full px-4 md:px-8">
+    <section class="mt-32 container mx-auto h-full px-4 md:px-8">
         <div>
             <bread-crumbs :route="routeUrl" />
             <div class="w-full flex flex-col md:flex-row mb-10 md:mb-0">
-                <div class="inline-block w-2/3 font-open-sans text-black-light  text-lg font-bold mb-6 uppercase leading-none">
-                    <slot name="country"
-                ></slot>
+                <div
+                    class="inline-block w-2/3 font-open-sans text-black-light text-lg font-bold mb-6 uppercase leading-none"
+                >
+                    <slot name="country"></slot>
                 </div>
                 <div class="w-3/4 md:w-1/2 lg:w-1/3 flex md:justify-end">
                     <!-- <v-select
@@ -16,7 +17,10 @@
                         :searchable="false"
                     /> -->
 
-                    <select-component class="bg-white h-8 w-11/12 relative z-10" @add:selectedOption="changeOptionSelected" />
+                    <select-component
+                        class="bg-white h-8 w-11/12 relative z-10"
+                        @add:selectedOption="changeOptionSelected"
+                    />
                 </div>
             </div>
             <loading-gif v-if="isLoading" />
@@ -29,9 +33,11 @@
                     <router-link
                         :id="id"
                         :to="'europe/country/' + country"
-                        class="country-card w-full bg-stone-blue h-full hover:opacity-75 rounded shadow-md p-8 flex items-center "
+                        class="country-card w-full bg-stone-blue h-full hover:opacity-75 rounded shadow-md p-8 flex items-center"
                     >
-                        <h2 class="text-white font-opens-sans text-base">{{country}}</h2>
+                        <h2 class="text-white font-opens-sans text-base">
+                            {{ country }}
+                        </h2>
                     </router-link>
                 </div>
             </div>
@@ -45,22 +51,26 @@ import { Vue, Component } from "vue-property-decorator";
 
 @Component
 export default class RegionView extends Vue {
-    selected: string = "";
-    routeUrl: string = this.$route.name as string;
-
+    selected = "";
+    routeUrl = this.$route.name;
+    
     changeOptionSelected(option: string) {
         this.selected = option;
     }
-
     get getAllCountries(): Array<string> {
         // Store the state with all the European countries inside a new variable
-        const arrayCountries: Array<any> = this.$store.getters.allCountries;
-        const countriesRegion: Array<any> = arrayCountries.filter((item) => {
-            if(item.region === this.routeUrl) {
+        const arrayCountries: Array<{
+            name: string;
+            region: string;
+        }> = this.$store.getters.allCountries;
+        const countriesRegion = arrayCountries.filter((item) => {
+            if (item.region === this.routeUrl) {
                 return item;
             }
-        })
-        const arrayOfNames = this.filterNames(countriesRegion.map(item => item.name)) as Array<string>;
+        });
+        const arrayOfNames = this.filterNames(
+            countriesRegion.map((item) => item.name)
+        );
         return arrayOfNames;
     }
     get isLoading(): boolean {
@@ -79,7 +89,9 @@ export default class RegionView extends Vue {
             // This executes a block that is responsible of checking which items has the most letters.
             const countries = countryNames;
             // This sort method checks the string length of the elements in the array and sort them based on that length.
-            const sortedArrayWords = countries.sort((a, b) => b.length - a.length);
+            const sortedArrayWords = countries.sort(
+                (a, b) => b.length - a.length
+            );
             name = sortedArrayWords;
         } else {
             name = countryNames;
@@ -90,7 +102,7 @@ export default class RegionView extends Vue {
 </script>
 
 <style lang="scss">
-    .haha {
-        color: red;
-    }
+.haha {
+    color: red;
+}
 </style>
